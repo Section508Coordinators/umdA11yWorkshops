@@ -1,0 +1,27 @@
+
+<header class="usa-header usa-header--extended" role="banner">
+  <div class="usa-navbar">
+    {% include logo.html %}
+    <button class="usa-menu-btn">Menu</button>
+  </div>
+  <nav aria-label="Primary site navigation" class="usa-nav site-nav sticky" id="site-nav">
+    <div class="usa-nav__inner site-nav__inner">
+      <button class="usa-nav__close"><img alt="close" src="{{ site.baseurl }}/assets/uswds/img/usa-icons/close.svg"></button>
+      <!-- Desktop nav -->
+      <ul class="usa-nav__primary usa-nav__primary--desktop usa-accordion">
+        {% for nav_item in site.primary_navigation %}
+        {% assign basedir = page.url | remove_first: '/' | split: '/' | first | lstrip %}
+        {% assign linkdir = nav_item.url |  replace: "/", ""  | lstrip %}
+        <li class="usa-nav__primary-item"><a
+            href="{{ nav_item.url | prepend: site.baseurl }}"
+            data-page-url="{{ page.url }}"
+            data-nav-item-url="{{ nav_item.url }}"
+            class="usa-nav__link{% if basedir == linkdir %} usa-current{% endif %}"
+            aria-label="{{ nav_item.name }} menu link"
+            {% if nav_item.ext== true %}target="_blank" {% endif %}>{{
+          nav_item.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</header>
