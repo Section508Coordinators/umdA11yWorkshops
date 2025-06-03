@@ -48,6 +48,8 @@ primary_navigation:
     url: /workshop-2/
   - name: Workshop 3
     url: /workshop-3/
+  - name: Workshop - Bonus
+    url: /workshop-bonus/
 
 collections:
   testcases:
