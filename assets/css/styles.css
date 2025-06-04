@@ -30076,3 +30076,16 @@ button.usa-combo-box__clear-input[aria-disabled=true]{
     width:auto;
   }
 }
+
+#codeframe-container {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+#codeframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	overflow: auto;
+}
