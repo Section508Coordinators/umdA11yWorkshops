@@ -11,7 +11,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Title and meta description
     ================================================== -->
-  <title>{{page.title}} | {{site.title}}</title>
+  <title>
+    {% if page.layout == "shortcase" %}
+    {{page.short-title}}
+    {% else %}
+      {% if page.short-title %}
+        {{page.short-title}} - {{page.title}} | {{site.title}}
+      {% else %}
+        {{page.title}} | {{site.title}}
+      {% endif %}
+    {% endif %}
+  </title>
   <meta property="og:title" content="{{site.title}}" />
   <meta name="description" content="{{site.description}}" />
   <meta property="og:description" content="{{site.description}}" />

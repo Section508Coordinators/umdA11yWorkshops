@@ -46,12 +46,10 @@ primary_navigation:
     url: /workshop-1/
   - name: Workshop 2
     url: /workshop-2/
-  - name: Workshop - Bonus
-    url: /workshop-bonus/
 
 collections:
   testcases:
     output: true
-    permalink: /testcases/:path/
+    permalink: /:collection/:name/
   testfiles:
     output: true

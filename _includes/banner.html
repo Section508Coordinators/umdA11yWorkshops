@@ -3,7 +3,15 @@
         <div class="grid-row grid-gap">
             <div class="tablet: grid-col">
                 <h1 class="text-white font-sans-xl margin-top-0 margin-bottom-0">
-                    {{page.title}}
+                    {% if page.layout == "shortcase" %}
+                    {{page.short-title}}
+                    {% else %}
+                        {% if page.short-title %}
+                            {{page.short-title}} - {{page.title}}
+                        {% else %}
+                            {{page.title}}
+                        {% endif %}
+                    {% endif %}
                 </h1>
             </div>
         </div>
