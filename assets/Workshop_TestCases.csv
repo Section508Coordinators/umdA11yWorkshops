@@ -1,5 +1,5 @@
 ---
 ---
 Workshop,Test Case Name,Test Case URL,Code Sample File URL,Relevant Standard,Standard URL
-{% for page in site.testcases %}{{ page.workshop }},{{ page.short-title }},{{ site.url }}{{ page.url }},{{ site.url }}{{ page.sample }},WCAG SC {{ page.app-sc }}, {{ page.app-sc-url }}
+{% for page in site.testcases %}{{ page.workshop }},{{ page.short-title }},{{ page.url | absolute_url }},{{ page.sample | absolute_url }},WCAG SC {{ page.app-sc }}, {{ page.app-sc-url }}
 {% endfor %}
