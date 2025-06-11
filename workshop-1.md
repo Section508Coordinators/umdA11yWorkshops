@@ -4,7 +4,7 @@ title: "Workshop 1"
 permalink: /workshop-1/
 workshop: workshop-1
 ---
-This Workshop includes the following test cases:
+<p>This Workshop includes the following test cases:</p>
 <ul>
 {% for testcase in site.testcases %}
         {% if testcase.workshop == page.workshop %}
@@ -26,3 +26,5 @@ This Workshop includes the following test cases:
         {% endif %}
 {% endfor %}
 </ul>
+<p>Downloadable csv file of test case summary info:</p>
+<p><a href="../assets/Workshop_TestCases.csv">Workshop_TestCases.csv</a></p>
