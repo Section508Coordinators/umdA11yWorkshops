@@ -7,7 +7,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   This site provides a home for test cases and sample website content to facilitate
   accessibility testing workshops hosted by the University of Maryland.
 baseurl: "/umdA11yWorkshops" # the subpath of your site, e.g. /blog
-url: "https://section508coordinators.github.io/umdA11yWorkshops/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://section508coordinators.github.io/umdA11yWorkshops" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 # Build settings
