@@ -50,6 +50,6 @@ primary_navigation:
 collections:
   testcases:
     output: true
-    permalink: /:collection/:name/
+    permalink: :collection/:name/
   testfiles:
     output: true
