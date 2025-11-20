@@ -1,0 +1,31 @@
+---
+layout: home
+title: "Demonstration"
+permalink: /demo/
+workshop: demo
+---
+<p>This demonstration includes the following test cases:</p>
+<ul>
+{% for testcase in site.testcases %}
+        {% if testcase.workshop == page.workshop %}
+        <li><a href="{{ testcase.url | prepend: site.baseurl }}">
+                {% if testcase.layout == "shortcase" %}
+                        {% if testcase.short-title %}
+                                {{testcase.short-title}}
+                        {% else %}
+                                {{testcase.title}}
+                        {% endif %}
+                {% else %}
+                        {% if testcase.short-title %}
+                                {{testcase.short-title}} - {{testcase.title}}
+                        {% else %}
+                                {{testcase.title}}
+                        {% endif %}
+                {% endif %}
+        </a></li>
+        {% endif %}
+{% endfor %}
+</ul>
+
+<p>Downloadable csv file of test case summary info:</p>
+<p><a href="../assets/Workshop_TestCases.csv">Workshop_TestCases.csv</a></p>

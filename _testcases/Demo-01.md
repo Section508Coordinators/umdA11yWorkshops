@@ -1,18 +1,18 @@
 ---
-workshop: homework-1
+workshop: demo
 
 # The layout must be 'testcase'; DO NOT Change
 layout: shortcase
 
 # Brief, descriptive title for the test case
-short-title: Test Case 3 - Image
-title: Meaningful Image - text equivalent in aria-label attribute
+short-title: Demo Case 1 - Image
+title: Decorative Image - with no accessible name or description defined, not in background
 
 
-# The Test Case ID should follow the pattern: 
+# The Test Case ID should follow the pattern:
 # TC[Baseline Test Procedure #]-[Test Instruction #]-
 # [Expected Result (pass/fail/dna)]-[example #], e.g., TC05.1-1-fail-1
-tcid: TC06.1-all-pass-3
+tcid: TC06.2-all-fail-1
 
 # Description of the Test Case, the included code sample, test considerations,
 # and rationale for the expected result according to the applicable ICT
@@ -20,10 +20,10 @@ tcid: TC06.1-all-pass-3
 short-descr: |
     Test the image in the sample code for accessibility. Consider the principles of Perceiveable, Operable, Understandable, and Robust as they relate to images. In particular consider the applicable Success Criterion from the Web Content Accessibility Guidelines noted below.
 
-descr: | 
-    Detect existence of attributes that would contribute to the accessible name and accessible description computation and calculate the text alternative for the image. Then determine whether the text alternative output for the image provides an equivalent description of the image.
+descr: |
+    Identify any image that is pure decoration, is used only for visual formatting, or is not presented to users.
 
-    The code sample provides an equivalent description of the image in an <code>aria-label</code> attribute. A successful test should identify a PASS against Baseline 6.1 Meaningful Images.
+    The code sample provides an equivalent description of the image with non-descriptive text in accessible name and description, which would cause Assistive Technologies to not ignore the image. A successful test should identify a FAIL against Baseline 6.2 Decorative Images.
 
 # Reference and link to the applicable WCAG Success Criterion
 app-sc: 1.1.1
@@ -45,41 +45,38 @@ app-sc-descr: |
     **Decoration, Formatting, Invisible**: If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.
 
 # Reference and link to the applicable ICT Baseline test
-app-baseline: | 
-    [6.1 Test Procedure for Meaningful Images](https://section508coordinators.github.io/ICTTestingBaseline/06Images.html#61-test-procedure-for-meaningful-images)
+app-baseline: |
+    [6.2 Test Procedure for Meaningful Images](https://section508coordinators.github.io/ICTTestingBaseline/06Images.html#62-test-procedure-for-decorative-images)
 
-    **Baseline Test ID:** 6.1-MeaningfulImage
-    
+    **Baseline Test ID:** 6.2-DecorativeImage
+
     **Test Instruction:** All
 
 # Expected result that the ICT Baseline would predict
 # [Pass | Fail | DNA]
-result: PASS
+result: FAIL
 
 # Brief description of the rationale for the expected result
-result-descr: The image in the code sample has a descriptive accessible name from its <code>aria-label</code> attribute.
-
+result-descr: The image in the code sample is an image with no accessible name or description defined, not in background
 # URL for the code sample
-# In the sample code file, add id="tc_code" to the 
+# In the sample code file, add id="tc_code" to the
 # element that contains the relevant code snippet.
 #
-# Then upload the code sample to the 'testfiles' folder 
+# Then upload the code sample to the 'testfiles' folder
 # and provide the link (and only the url) below.
-sample: /testfiles/testfile3-image.html
+sample: /testfiles/demofile1-image.html
 
-# Table of test instructions, including the following table headers: 
+# Table of test instructions, including the following table headers:
 # Test Instruction #; Instruction Detail; Expected Test Case Result
 #
 # Include the table in the content section below
 ---
 | Test Instruction | Instruction Detail | Expected Test Case Result |
 |------------------|--------------------|---------------------------|
-| **IC-1** | Identify any image that conveys information (include images of text; functional images used to initiate action, convey meaning, or prompting a response; image maps, etc.) | One `<img>` exists in the test data code sample. The image is meaningful and conveys information, based on the text directly below the image. |
-| **6.1-1** | Check that the text alternative (combination of the accessible name and accessible description) is not empty. [SC 1.1.1] | Pass: The image's non-empty accessible name from `aria-label` is "Bland Corp. logo". | 
-| **6.1-2** | Check that the non-empty text alternative (combination of accessible name and accessible description) provides an equivalent description. Numerous attributes contribute to the computation of the accessible name and accessible description. Refer to HTML Accessibility API Mappings 1.0 for img. [SC 1.1.1] | Pass: The image's accessible name "Bland Corp. logo" is an equivalent description. |
-| **6.1-2a** | Descriptions of the image that are provided by page content must be programmatically associated. | Not applicable |
-| **6.1-2b** | When an image is updated to convey a new meaning, check that its text alternative is updated at the same time. [SCs 1.1.1 and 4.1.2] | Not applicable  |
-| **6.1-3** | Check that the ARIA role is NOT "presentation".| Pass |
-| **6.1-4** | Check that the ARIA role is NOT "none". | Pass |
-| **6.1-5** | Check that aria-hidden is NOT set to "true". | Pass |
-| **Result** | If any of the above checks fail, then Baseline Test 6.1-MeaningfulImage fails. | All checks PASS (or do not apply). |
+| **IC-1** | Identify any decorative image that is pure decoration, is used only for visual formatting, or is not presented to users. |
+| **6.2-1** | The ARIA role is "presentation". | False |
+| **6.2-2** | The ARIA role is "none". | False |
+| **6.2-3** | The aria-hidden is set to "true".| False |
+| **6.2-4** | The text alternative (combination of accessible name and accessible description) is empty. | False |
+| **6.2-5** | The image is inserted via CSS. | False |
+| **Result** | If all of the above checks fail, then Baseline Test 6.2-DecorativeImage fails. | FAIL. |
