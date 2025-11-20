@@ -42,6 +42,8 @@ exclude:
 primary_navigation:
   - name: Home
     url: /
+  - name: Demo
+    url: /demo/
   - name: Workshop 1
     url: /workshop-1/
   - name: Workshop 2

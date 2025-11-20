@@ -1,18 +1,18 @@
 ---
-workshop: workshop-2
+workshop: demo
 
 # The layout must be 'testcase'; DO NOT Change
 layout: shortcase
 
 # Brief, descriptive title for the test case
-short-title: Test Case 14 - Form
-title: Form Names - no accessible name or description
+short-title: Demo Case 3 - Form
+title: Form Names - accessible name via aria-labelledby attribute
 
 
 # The Test Case ID should follow the pattern: 
 # TC[Baseline Test Procedure #]-[Test Instruction #]-
 # [Expected Result (pass/fail/dna)]-[example #], e.g., TC05.1-1-fail-1
-tcid: TC10.1-1-fail-1
+tcid: TC10.1-all-pass-5 #adapted from oldTestCases>TC10-006-pass
 
 # Description of the Test Case, the included code sample, test considerations,
 # and rationale for the expected result according to the applicable ICT
@@ -21,9 +21,7 @@ short-descr: |
   Test the form fields in the sample code for accessibility. Consider the principles of Perceiveable, Operable, Understandable, and Robust as they relate to forms. In particular consider the applicable Success Criterion from the Web Content Accessibility Guidelines noted below.
 
 descr: | 
-    Detect attributes that would contribute to the accessible name and accessible description computation and calculate the text alternative for the input element. 
-    
-    The code sample data does not include attributes that contribute to accessible name or accessible description output. A successful test should identify a FAIL against Baseline Test 10.1 FormName.
+    Detect attributes that would contribute to the accessible name and accessible description computation and calculate the text alternative for the input element. The code sample data presents an aria-labelledby attribute that contributes to the accessible name output. A successful test should identify a passing implementation against Baseline Test 10.1 FormName.
 
 # Reference and link to the applicable WCAG Success Criterion
 app-sc: 4.1.2
@@ -40,14 +38,14 @@ app-baseline: |
 
     **Baseline Test ID:** 10.1-FormName
     
-    **Test Instruction:** 1
+    **Test Instruction:** All
 
 # Expected result that the ICT Baseline would predict
 # [Pass | Fail | DNA]
-result: FAIL
+result: PASS
 
 # Brief description of the rationale for the expected result
-result-descr: The <code>input</code> element in the code sample does not have any attributes that would contribute to an accessible name or description.
+result-descr: The input element in the code sample provides an accessible name value via implementation of an aria-labelledby attribute.
 
 # URL for the code sample
 # In the sample code file, add id="tc_code" to the 
@@ -55,7 +53,7 @@ result-descr: The <code>input</code> element in the code sample does not have an
 #
 # Then upload the code sample to the 'testfiles' folder 
 # and provide the link (and only the url) below.
-sample: /testfiles/testfile14-form.html
+sample: /testfiles/demofile3-form.html
 
 # Table of test instructions, including the following table headers: 
 # Test Instruction #; Instruction Detail; Expected Test Case Result
@@ -64,7 +62,8 @@ sample: /testfiles/testfile14-form.html
 ---
 | Test Instruction | Instruction Detail | Expected Test Case Result |
 |------------------|--------------------|---------------------------|
-| **IC-1** | Find all form components. Examples include buttons, text fields, radio buttons, checkboxes, read-only fields, and multi-select lists. | `Input` text field |
-| **IC-2** | Find all instructions and cues (textual and graphical) that are related to form components, including groupings, order of completion, special conditions or qualifiers, format instructions, etc. | "First name" visually labels the input field. |
-| **10.1-1** | Check that the combination of the accessible name and accessible description is not empty. [SC 4.1.2] | Fail: Accessible name and accessible description are both empty. | 
-| **Result** | If any of the above checks fail, then Baseline Test 10.1-FormName fails. | 10.1-1 check fails. |
+| **IC-1** | Find all form components. Examples include buttons, text fields, radio buttons, checkboxes, read-only fields, and multi-select lists. | One `<input>` element exists in the test data code sample. |
+| **IC-2** | Find all instructions and cues (textual and graphical) that are related to form components, including groupings, order of completion, special conditions or qualifiers, format instructions, etc. | The `<input>` control has a visual prompt before the control. |
+| **10.1-1** | Check that the combination of the accessible name and accessible description is not empty. [SC 4.1.2] | The output for the accessible name and accessible descriptions computations is populated via the aria-labelledby attribute. | 
+| **10.1-2** | Check that the non-empty combination of the accessible name and accessible description and other programmatic associations (e.g., table column and/or row associations) describes each form component and includes all relevant instructions and cues (textual and graphical). [SC 1.3.1] | The accessible name "Company Name" describes the field with all relevant instructions. |
+| **Result** | If any of the above checks fail, then Baseline Test 10.1-FormName fails. | Pass - all checks pass. |

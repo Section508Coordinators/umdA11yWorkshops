@@ -1,0 +1,82 @@
+---
+workshop: demo
+
+# The layout must be 'testcase'; DO NOT Change
+layout: shortcase
+
+# Brief, descriptive title for the test case
+short-title: Demo Case 1 - Image
+title: Decorative Image - with no accessible name or description defined, not in background
+
+
+# The Test Case ID should follow the pattern:
+# TC[Baseline Test Procedure #]-[Test Instruction #]-
+# [Expected Result (pass/fail/dna)]-[example #], e.g., TC05.1-1-fail-1
+tcid: TC06.2-all-fail-1
+
+# Description of the Test Case, the included code sample, test considerations,
+# and rationale for the expected result according to the applicable ICT
+# Baseline test
+short-descr: |
+    Test the image in the sample code for accessibility. Consider the principles of Perceiveable, Operable, Understandable, and Robust as they relate to images. In particular consider the applicable Success Criterion from the Web Content Accessibility Guidelines noted below.
+
+descr: |
+    Identify any image that is pure decoration, is used only for visual formatting, or is not presented to users.
+
+    The code sample provides an equivalent description of the image with non-descriptive text in accessible name and description, which would cause Assistive Technologies to not ignore the image. A successful test should identify a FAIL against Baseline 6.2 Decorative Images.
+
+# Reference and link to the applicable WCAG Success Criterion
+app-sc: 1.1.1
+app-sc-title: Non-text Content
+app-sc-url: https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html
+app-sc-descr: |
+    All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.
+
+    **Controls, Input**: If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Success Criterion 4.1.2 for additional requirements for controls and content that accepts user input.)
+
+    **Time-Based Media**: If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.)
+
+    **Test**: If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content.
+
+    **Sensory**: If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content.
+
+    **CAPTCHA**: If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities.
+
+    **Decoration, Formatting, Invisible**: If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.
+
+# Reference and link to the applicable ICT Baseline test
+app-baseline: |
+    [6.2 Test Procedure for Meaningful Images](https://section508coordinators.github.io/ICTTestingBaseline/06Images.html#62-test-procedure-for-decorative-images)
+
+    **Baseline Test ID:** 6.2-DecorativeImage
+
+    **Test Instruction:** All
+
+# Expected result that the ICT Baseline would predict
+# [Pass | Fail | DNA]
+result: FAIL
+
+# Brief description of the rationale for the expected result
+result-descr: The image in the code sample is an image with no accessible name or description defined, not in background
+# URL for the code sample
+# In the sample code file, add id="tc_code" to the
+# element that contains the relevant code snippet.
+#
+# Then upload the code sample to the 'testfiles' folder
+# and provide the link (and only the url) below.
+sample: /testfiles/demofile1-image.html
+
+# Table of test instructions, including the following table headers:
+# Test Instruction #; Instruction Detail; Expected Test Case Result
+#
+# Include the table in the content section below
+---
+| Test Instruction | Instruction Detail | Expected Test Case Result |
+|------------------|--------------------|---------------------------|
+| **IC-1** | Identify any decorative image that is pure decoration, is used only for visual formatting, or is not presented to users. |
+| **6.2-1** | The ARIA role is "presentation". | False |
+| **6.2-2** | The ARIA role is "none". | False |
+| **6.2-3** | The aria-hidden is set to "true".| False |
+| **6.2-4** | The text alternative (combination of accessible name and accessible description) is empty. | False |
+| **6.2-5** | The image is inserted via CSS. | False |
+| **Result** | If all of the above checks fail, then Baseline Test 6.2-DecorativeImage fails. | FAIL. |
