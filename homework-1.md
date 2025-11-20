@@ -1,10 +1,10 @@
 ---
 layout: home
-title: "Workshop 2"
-permalink: /workshop-2/
-workshop: workshop-2
+title: "Homework 1"
+permalink: /homework-1/
+workshop: homework-1
 ---
-<p>This Workshop includes the following test cases:</p>
+<p>The homework from Workshop 1 includes the following test cases:</p>
 <ul>
 {% for testcase in site.testcases %}
         {% if testcase.workshop == page.workshop %}
@@ -26,6 +26,5 @@ workshop: workshop-2
         {% endif %}
 {% endfor %}
 </ul>
-
 <p>Downloadable csv file of test case summary info:</p>
 <p><a href="../assets/Workshop_TestCases.csv">Workshop_TestCases.csv</a></p>

@@ -4,7 +4,7 @@ title: "Demonstration"
 permalink: /demo/
 workshop: demo
 ---
-<p>This Workshop includes the following test cases:</p>
+<p>This demonstration includes the following test cases:</p>
 <ul>
 {% for testcase in site.testcases %}
         {% if testcase.workshop == page.workshop %}
